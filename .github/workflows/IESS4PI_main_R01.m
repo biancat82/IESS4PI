@@ -171,18 +171,16 @@ title('Sunlit')
 ylabel('[0 = dark, 1 = light]')
 grid on;
 ha = gca;
-set(ha,'FontSize',18)
+set(ha,'FontSize',24)
 
 %% ELEVATION
-plot(UTCtime, data.Elevation,LineWidth=2);
+plot(UTCtime, data.Elevation,LineWidth=12);
 xlabel('time')
 ylabel('[Km]')
 title('Elevation')
 ha = gca;
 set(ha,'FontSize',24)
 grid on;
-
-
 
 %% COLORS
 figure
@@ -243,11 +241,10 @@ roll_der_threshold = 0.1;
 I = find(data.roll_der > roll_der_threshold);
 geoscatter(data.Latitude(I),data.Longitude(I),'filled','MarkerFaceColor',[0 0.4470 0.7410]);
 
-
 figure
-I1 = find(data.Elevation > 410 & data.Elevation <= 420);
+I1 = find(data.Elevation <= 420);
 I2 = find(data.Elevation > 420 & data.Elevation <= 430);
-I3 = find(data.Elevation > 430 & data.Elevation <= 440);
+I3 = find(data.Elevation > 430);
 geoscatter(data.Latitude(I1),data.Longitude(I1),'filled','MarkerFaceColor',[0 0.4470 0.7410],'LineWidth',40);
 hold on;
 geoscatter(data.Latitude(I2),data.Longitude(I2),'filled','MarkerFaceColor',[0.9290 0.6940 0.1250],'LineWidth',40);
